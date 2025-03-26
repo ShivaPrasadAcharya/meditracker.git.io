@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrack - Medication Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MediTrack</h1>
+            <div class="subtitle">Your personal medication companion</div>
+        </header>
+        
+        <div class="main-content">
+            <!-- Medications Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Your Medications</h2>
+                </div>
+                
+                <div class="medicine-grid" id="medicine-grid">
+                    <div class="medicine-card" data-name="Amoxicillin">
+                        <img src="https://via.placeholder.com/128" alt="Amoxicillin">
+                        <div class="medicine-name">Amoxicillin</div>
+                        <div class="medicine-dosage">500mg</div>
+                        <div class="medicine-timing">3 times daily</div>
+                        <div class="medicine-last-taken" id="last-taken-Amoxicillin">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="medicine-card" data-name="Lisinopril">
+                        <img src="https://via.placeholder.com/128" alt="Lisinopril">
+                        <div class="medicine-name">Lisinopril</div>
+                        <div class="medicine-dosage">10mg</div>
+                        <div class="medicine-timing">Once daily</div>
+                        <div class="medicine-last-taken" id="last-taken-Lisinopril">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="medicine-card" data-name="Metformin">
+                        <div class="badge">2</div>
+                        <img src="https://via.placeholder.com/128" alt="Metformin">
+                        <div class="medicine-name">Metformin</div>
+                        <div class="medicine-dosage">850mg</div>
+                        <div class="medicine-timing">Twice daily</div>
+                        <div class="medicine-last-taken" id="last-taken-Metformin">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="medicine-card" data-name="Atorvastatin">
+                        <img src="https://via.placeholder.com/128" alt="Atorvastatin">
+                        <div class="medicine-name">Atorvastatin</div>
+                        <div class="medicine-dosage">20mg</div>
+                        <div class="medicine-timing">At bedtime</div>
+                        <div class="medicine-last-taken" id="last-taken-Atorvastatin">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="medicine-card" data-name="Albuterol">
+                        <img src="https://via.placeholder.com/128" alt="Albuterol">
+                        <div class="medicine-name">Albuterol</div>
+                        <div class="medicine-dosage">90mcg</div>
+                        <div class="medicine-timing">As needed</div>
+                        <div class="medicine-last-taken" id="last-taken-Albuterol">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="add-medicine-button" onclick="alert('This feature will be available soon!')">
+                        <i class="fas fa-plus-circle"></i>
+                        Add Medicine
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Medication Log Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Medication Log</h2>
+                </div>
+                
+                <div class="log-toolbar">
+                    <div class="filter-container">
+                        <label for="medicine-filter">Filter by medicine:</label>
+                        <select id="medicine-filter" class="medicine-filter">
+                            <option value="all">All Medications</option>
+                            <!-- Medicine options will be added dynamically -->
+                        </select>
+                    </div>
+                    <button class="view-toggle" id="view-toggle">
+                        <i class="fas fa-list"></i> View All Logs
+                    </button>
+                </div>
+                
+                <table class="log-table">
+                    <thead>
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-table-body">
+                        <!-- Log entries will be added here via JavaScript -->
+                    </tbody>
+                </table>
+                <div id="no-logs" class="no-logs">No medication records found</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Time Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h3 class="modal-title">Edit Medication Time</h3>
+            <div class="form-group">
+                <label for="password-input">Password:</label>
+                <input type="password" id="password-input" placeholder="Enter password">
+                <div class="error-message" id="password-error">Incorrect password (0000)</div>
+            </div>
+            <div class="form-group">
+                <label for="datetime-input">New Date and Time:</label>
+                <input type="datetime-local" id="datetime-input">
+            </div>
+            <div class="form-buttons">
+                <button class="cancel-button" id="cancel-edit">Cancel</button>
+                <button class="save-button" id="save-edit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="success-message" class="success-message">Medication recorded successfully!</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
