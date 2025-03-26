@@ -22,45 +22,55 @@
                 </div>
                 
                 <div class="medicine-grid" id="medicine-grid">
-                    <div class="medicine-card" data-name="Amoxicillin">
-                        <img src="https://via.placeholder.com/128" alt="Amoxicillin">
-                        <div class="medicine-name">Amoxicillin</div>
-                        <div class="medicine-dosage">500mg</div>
-                        <div class="medicine-timing">3 times daily</div>
-                        <div class="medicine-last-taken" id="last-taken-Amoxicillin">Last taken: Not yet</div>
+                    <div class="medicine-card" data-name="TAB CHOLIROL 60K">
+                        <img src="https://via.placeholder.com/128" alt="TAB CHOLIROL 60K">
+                        <div class="medicine-name">TAB CHOLIROL 60K</div>
+                        <div class="medicine-last-taken" id="last-taken-TAB CHOLIROL 60K">Last taken: Not yet</div>
                     </div>
                     
-                    <div class="medicine-card" data-name="Lisinopril">
-                        <img src="https://via.placeholder.com/128" alt="Lisinopril">
-                        <div class="medicine-name">Lisinopril</div>
-                        <div class="medicine-dosage">10mg</div>
-                        <div class="medicine-timing">Once daily</div>
-                        <div class="medicine-last-taken" id="last-taken-Lisinopril">Last taken: Not yet</div>
+                    <div class="medicine-card" data-name="TAB ECOSPRIN-75">
+                        <img src="https://via.placeholder.com/128" alt="TAB ECOSPRIN-75">
+                        <div class="medicine-name">TAB ECOSPRIN-75</div>
+                        <div class="medicine-last-taken" id="last-taken-TAB ECOSPRIN-75">Last taken: Not yet</div>
                     </div>
                     
-                    <div class="medicine-card" data-name="Metformin">
-                        <div class="badge">2</div>
-                        <img src="https://via.placeholder.com/128" alt="Metformin">
-                        <div class="medicine-name">Metformin</div>
-                        <div class="medicine-dosage">850mg</div>
-                        <div class="medicine-timing">Twice daily</div>
-                        <div class="medicine-last-taken" id="last-taken-Metformin">Last taken: Not yet</div>
+                    <div class="medicine-card" data-name="FOLIC 5MG TAB">
+                        <img src="https://via.placeholder.com/128" alt="FOLIC 5MG TAB">
+                        <div class="medicine-name">FOLIC 5MG TAB</div>
+                        <div class="medicine-last-taken" id="last-taken-FOLIC 5MG TAB">Last taken: Not yet</div>
                     </div>
                     
-                    <div class="medicine-card" data-name="Atorvastatin">
-                        <img src="https://via.placeholder.com/128" alt="Atorvastatin">
-                        <div class="medicine-name">Atorvastatin</div>
-                        <div class="medicine-dosage">20mg</div>
-                        <div class="medicine-timing">At bedtime</div>
-                        <div class="medicine-last-taken" id="last-taken-Atorvastatin">Last taken: Not yet</div>
+                    <div class="medicine-card" data-name="HCQS 200">
+                        <img src="https://via.placeholder.com/128" alt="HCQS 200">
+                        <div class="medicine-name">HCQS 200</div>
+                        <div class="medicine-last-taken" id="last-taken-HCQS 200">Last taken: Not yet</div>
                     </div>
                     
-                    <div class="medicine-card" data-name="Albuterol">
-                        <img src="https://via.placeholder.com/128" alt="Albuterol">
-                        <div class="medicine-name">Albuterol</div>
-                        <div class="medicine-dosage">90mcg</div>
-                        <div class="medicine-timing">As needed</div>
-                        <div class="medicine-last-taken" id="last-taken-Albuterol">Last taken: Not yet</div>
+                    <div class="medicine-card" data-name="WYSOLONE 10MG TAB">
+                        <img src="https://via.placeholder.com/128" alt="WYSOLONE 10MG TAB">
+                        <div class="medicine-name">WYSOLONE 10MG TAB</div>
+                        <div class="medicine-dosage">(PREDNISOLONE)</div>
+                        <div class="medicine-last-taken" id="last-taken-WYSOLONE 10MG TAB">Last taken: Not yet</div>
+                    </div>
+                    
+                    <div class="medicine-card" data-name="TAB WYSOLONE 5MG">
+                        <img src="https://via.placeholder.com/128" alt="TAB WYSOLONE 5MG">
+                        <div class="medicine-name">TAB WYSOLONE 5MG</div>
+                        <div class="medicine-dosage">(PREDNISOLONE)</div>
+                        <div class="medicine-last-taken" id="last-taken-TAB WYSOLONE 5MG">Last taken: Not yet</div>
+                    </div>
+
+                    <div class="medicine-card" data-name="WYSOLONE 20 MG">
+                        <img src="https://via.placeholder.com/128" alt="WYSOLONE 20 MG">
+                        <div class="medicine-name">WYSOLONE 20 MG</div>
+                        <div class="medicine-dosage">(PREDNISOLONE)</div>
+                        <div class="medicine-last-taken" id="last-taken-WYSOLONE 20 MG">Last taken: Not yet</div>
+                    </div>
+
+                    <div class="medicine-card" data-name="TYROID">
+                        <img src="https://via.placeholder.com/128" alt="TYROID">
+                        <div class="medicine-name">TYROID</div>
+                        <div class="medicine-last-taken" id="last-taken-TYROID">Last taken: Not yet</div>
                     </div>
                     
                     <div class="add-medicine-button" onclick="alert('This feature will be available soon!')">
@@ -107,10 +117,27 @@
         </div>
     </div>
     
+    <!-- Password Modal for Recording -->
+    <div id="record-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-record-modal">&times;</span>
+            <h3 class="modal-title">Verify Password</h3>
+            <div class="form-group">
+                <label for="record-password-input">Password:</label>
+                <input type="password" id="record-password-input" placeholder="Enter password">
+                <div class="error-message" id="record-password-error">Incorrect password (0000)</div>
+            </div>
+            <div class="form-buttons">
+                <button class="cancel-button" id="cancel-record">Cancel</button>
+                <button class="save-button" id="confirm-record">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Edit Time Modal -->
     <div id="edit-modal" class="modal">
         <div class="modal-content">
-            <span class="close-button" id="close-modal">&times;</span>
+            <span class="close-button" id="close-edit-modal">&times;</span>
             <h3 class="modal-title">Edit Medication Time</h3>
             <div class="form-group">
                 <label for="password-input">Password:</label>
@@ -124,6 +151,24 @@
             <div class="form-buttons">
                 <button class="cancel-button" id="cancel-edit">Cancel</button>
                 <button class="save-button" id="save-edit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-delete-modal">&times;</span>
+            <h3 class="modal-title">Confirm Deletion</h3>
+            <p class="delete-message">Are you sure you want to delete this medication record?</p>
+            <div class="form-group">
+                <label for="delete-password-input">Password:</label>
+                <input type="password" id="delete-password-input" placeholder="Enter password">
+                <div class="error-message" id="delete-password-error">Incorrect password (0000)</div>
+            </div>
+            <div class="form-buttons">
+                <button class="cancel-button" id="cancel-delete">Cancel</button>
+                <button class="delete-button" id="confirm-delete">Delete</button>
             </div>
         </div>
     </div>
