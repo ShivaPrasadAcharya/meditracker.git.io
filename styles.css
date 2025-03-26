@@ -5,6 +5,7 @@
     --accent-color: #ff6b6b;
     --success-color: #38b000;
     --warning-color: #ffbe0b;
+    --danger-color: #e63946;
     --text-color: #333;
     --text-light: #666;
     --background-color: #f9fafe;
@@ -164,6 +165,7 @@ h1 {
     padding: 5px 10px;
     border-radius: 15px;
     display: inline-block;
+    margin-bottom: 10px;
 }
 
 .medicine-timing {
@@ -305,6 +307,11 @@ h1 {
     background-color: var(--primary-light);
 }
 
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
 .edit-button {
     background-color: var(--primary-light);
     border: none;
@@ -317,11 +324,29 @@ h1 {
     display: flex;
     align-items: center;
     gap: 5px;
-    width: fit-content;
 }
 
 .edit-button:hover {
     background-color: var(--primary-color);
+    color: white;
+}
+
+.delete-button {
+    background-color: rgba(230, 57, 70, 0.1);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--danger-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-button:hover {
+    background-color: var(--danger-color);
     color: white;
 }
 
@@ -415,6 +440,12 @@ h1 {
     box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
 }
 
+.delete-message {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
 .form-buttons {
     display: flex;
     justify-content: flex-end;
@@ -447,6 +478,15 @@ h1 {
 
 .save-button:hover {
     background-color: var(--secondary-color);
+}
+
+#confirm-delete {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+#confirm-delete:hover {
+    background-color: #c1121f;
 }
 
 .error-message {
@@ -503,6 +543,10 @@ h1 {
     }
     .medicine-filter {
         flex-grow: 1;
+    }
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
     }
 }
 
