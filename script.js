@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Record Modal Elements
     const recordModal = document.getElementById('record-modal');
+    const medicineInfo = document.getElementById('medicine-info');
     const closeRecordModalBtn = document.getElementById('close-record-modal');
     const cancelRecordBtn = document.getElementById('cancel-record');
     const confirmRecordBtn = document.getElementById('confirm-record');
+    const recordDatetimeInput = document.getElementById('record-datetime-input');
     const recordPasswordInput = document.getElementById('record-password-input');
     const recordPasswordError = document.getElementById('record-password-error');
     
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup Event Listeners
     function setupEventListeners() {
-        // Medicine cards click - now shows password modal
+        // Medicine cards click - now shows password modal with date/time prefilled
         medicineCards.forEach(card => {
             card.addEventListener('click', function() {
                 const medicineName = this.getAttribute('data-name');
@@ -103,9 +105,26 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('medicationLogs', JSON.stringify(medicationLogs));
     }
     
+    // Get current date and time formatted for datetime-local input
+    function getCurrentDateTimeForInput() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+    
     // Show Record Modal
     function showRecordModal(medicineName) {
         pendingMedicine = medicineName;
+        medicineInfo.textContent = `Recording: ${medicineName}`;
+        
+        // Set current date and time
+        recordDatetimeInput.value = getCurrentDateTimeForInput();
+        
         recordPasswordInput.value = '';
         recordPasswordError.style.display = 'none';
         recordModal.style.display = 'block';
@@ -124,19 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        if (pendingMedicine) {
-            recordMedication(pendingMedicine);
+        if (pendingMedicine && recordDatetimeInput.value) {
+            const selectedDateTime = new Date(recordDatetimeInput.value);
+            recordMedication(pendingMedicine, selectedDateTime);
             closeRecordModal();
         }
     }
     
-    // Record medication
-    function recordMedication(medicineName) {
-        const now = new Date();
+    // Record medication with specified date/time
+    function recordMedication(medicineName, dateTime) {
         const logEntry = {
             id: Date.now(),
             medicine: medicineName,
-            dateTime: now.toISOString(),
+            dateTime: dateTime.toISOString(),
             isEdited: false
         };
         
